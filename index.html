@@ -1,14 +1,479 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gyro Dodge - Official Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gyro Dodge - Official Mobile Game</title>
+
+<meta name="description" content="Play Gyro Dodge, an exciting gyroscope-controlled arcade game. Dodge obstacles, beat your high score and compete on the global leaderboard.">
+
+<meta name="theme-color" content="#080d1b">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #080d1b;
+  color: #ffffff;
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  border-bottom: 1px solid #202a43;
+  background: #080d1b;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+  color: #63e8ff;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  font-size: 14px;
+  color: #c5cee0;
+}
+
+.nav-links a:hover {
+  color: #63e8ff;
+}
+
+.hero {
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 90px 20px;
+  background:
+    radial-gradient(ellipse at 50% 40%, #173b68 0%, #101a35 35%, #080d1b 75%);
+}
+
+.hero-content {
+  max-width: 850px;
+}
+
+.tag {
+  color: #63e8ff;
+  border: 1px solid #276b8d;
+  padding: 7px 16px;
+  border-radius: 30px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  display: inline-block;
+}
+
+h1 {
+  font-size: clamp(48px, 8vw, 85px);
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 25px 0;
+  letter-spacing: -3px;
+}
+
+h1 span {
+  color: #63e8ff;
+}
+
+.hero p {
+  color: #c1cbe0;
+  font-size: 18px;
+  max-width: 620px;
+  margin: 0 auto 35px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin: 7px;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.primary {
+  background: #63e8ff;
+  color: #07101c;
+}
+
+.secondary {
+  border: 1px solid #536784;
+  color: white;
+}
+
+section {
+  padding: 85px 8%;
+}
+
+.section-title {
+  font-size: 38px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.section-desc {
+  text-align: center;
+  color: #aab6cd;
+  max-width: 650px;
+  margin: 0 auto 45px;
+}
+
+.about {
+  background: #0c1427;
+}
+
+.about-content {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+  color: #c3cee1;
+  font-size: 17px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.feature {
+  background: #111d34;
+  border: 1px solid #263958;
+  padding: 30px 24px;
+  border-radius: 16px;
+  transition: 0.2s;
+}
+
+.feature:hover {
+  border-color: #63e8ff;
+  transform: translateY(-5px);
+}
+
+.feature .symbol {
+  font-size: 30px;
+  color: #63e8ff;
+}
+
+.feature h3 {
+  margin: 12px 0;
+  font-size: 20px;
+}
+
+.feature p {
+  color: #aab6cd;
+  font-size: 14px;
+}
+
+.how {
+  background: #0c1427;
+}
+
+.steps {
+  max-width: 750px;
+  margin: auto;
+}
+
+.step {
+  padding: 20px;
+  border-left: 3px solid #63e8ff;
+  background: #111d34;
+  margin: 15px 0;
+  border-radius: 0 12px 12px 0;
+}
+
+.step h3 {
+  color: #63e8ff;
+  margin-bottom: 5px;
+}
+
+.step p {
+  color: #b5c0d5;
+}
+
+.download {
+  text-align: center;
+  background:
+    radial-gradient(ellipse at center, #183a5a, #080d1b 75%);
+}
+
+.download p {
+  color: #c0cce0;
+  margin: 15px auto 25px;
+}
+
+footer {
+  padding: 35px 8%;
+  text-align: center;
+  border-top: 1px solid #26334a;
+  color: #9eacc2;
+  font-size: 13px;
+}
+
+.footer-links {
+  margin: 15px 0;
+}
+
+.footer-links a {
+  margin: 0 10px;
+  color: #63e8ff;
+}
+
+@media(max-width: 750px) {
+  .nav-links {
+    gap: 12px;
+    font-size: 11px;
+  }
+
+  .logo {
+    font-size: 19px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 65px 6%;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+
+  .hero {
+    min-height: 500px;
+  }
+}
+</style>
 </head>
+
 <body>
-  <h1>Gyro Dodge</h1>
-  <p>Official website of Gyro Dodge mobile game.</p>
-  <p>Developer: Rajubhai</p>
-  <p><a href="https://rajubhai9122042349-commits.github.io/app-ads.txt">Advertising information (app-ads.txt)</a></p>
+
+<nav>
+  <div class="logo">GYRO DODGE</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#how">How to Play</a>
+    <a href="#download">Download</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <span class="tag">OFFICIAL GAME WEBSITE</span>
+
+    <h1>MASTER THE<br><span>GYRO.</span> DODGE.</h1>
+
+    <p>
+      Control your movement with your phone's
+      gyroscope. Dodge incoming obstacles,
+      survive longer and beat your highest score.
+    </p>
+
+    <a class="btn primary"
+       href="https://play.google.com/store/apps/details?id=com.gyrododge.rajubhai"
+       target="_blank" rel="noopener">
+       DOWNLOAD ON GOOGLE PLAY
+    </a>
+
+    <a class="btn secondary" href="#features">
+       EXPLORE FEATURES
+    </a>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <h2 class="section-title">ABOUT GYRO DODGE</h2>
+
+  <p class="section-desc">
+    A challenging gyroscope-controlled arcade experience.
+  </p>
+
+  <div class="about-content">
+    <p>
+      Gyro Dodge is a mobile arcade game where
+      your device movement becomes your controller.
+      Guide your ball through incoming obstacles
+      and carefully navigate through gaps.
+    </p>
+    <br>
+    <p>
+      Stay focused, improve your reflexes,
+      achieve higher scores and challenge
+      yourself to survive longer.
+    </p>
+  </div>
+</section>
+
+<section id="features">
+  <h2 class="section-title">GAME FEATURES</h2>
+
+  <p class="section-desc">
+    Every movement matters. Every second counts.
+  </p>
+
+  <div class="features">
+
+    <div class="feature">
+      <div class="symbol">◉</div>
+      <h3>Gyroscope Controls</h3>
+      <p>
+        Move your device to control your
+        ball and navigate through obstacles.
+      </p>
+    </div>
+
+    <div class="feature">
+      <div class="symbol">◇</div>
+      <h3>Obstacle Dodging</h3>
+      <p>
+        Dodge incoming polygon obstacles
+        and find the right gaps to survive.
+      </p>
+    </div>
+
+    <div class="feature">
+      <div class="symbol">↗</div>
+      <h3>Increasing Challenge</h3>
+      <p>
+        Test your reflexes as the game
+        gradually becomes more challenging.
+      </p>
+    </div>
+
+    <div class="feature">
+      <div class="symbol">★</div>
+      <h3>High Scores</h3>
+      <p>
+        Beat your previous records
+        and improve your performance.
+      </p>
+    </div>
+
+    <div class="feature">
+      <div class="symbol">♛</div>
+      <h3>Global Leaderboard</h3>
+      <p>
+        Compare your scores and compete
+        with other players.
+      </p>
+    </div>
+
+    <div class="feature">
+      <div class="symbol">⚙</div>
+      <h3>Player Profile</h3>
+      <p>
+        Sign in to access your player
+        profile and game progress.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="how" id="how">
+  <h2 class="section-title">HOW TO PLAY</h2>
+
+  <p class="section-desc">
+    Learn the basics and start dodging.
+  </p>
+
+  <div class="steps">
+
+    <div class="step">
+      <h3>01. Open the Game</h3>
+      <p>Launch Gyro Dodge on your Android device.</p>
+    </div>
+
+    <div class="step">
+      <h3>02. Sign In</h3>
+      <p>Access your player account.</p>
+    </div>
+
+    <div class="step">
+      <h3>03. Tilt Your Device</h3>
+      <p>Use gyroscope movement to guide your ball.</p>
+    </div>
+
+    <div class="step">
+      <h3>04. Dodge Obstacles</h3>
+      <p>Move through gaps and avoid collisions.</p>
+    </div>
+
+    <div class="step">
+      <h3>05. Beat Your Score</h3>
+      <p>Survive longer and challenge your records.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="download" id="download">
+  <h2 class="section-title">READY TO DODGE?</h2>
+
+  <p>
+    Download Gyro Dodge and test your reflexes.
+  </p>
+
+  <a class="btn primary"
+     href="https://play.google.com/store/apps/details?id=com.gyrododge.rajubhai"
+     target="_blank" rel="noopener">
+     GET GYRO DODGE
+  </a>
+</section>
+
+<footer>
+  <div class="logo">GYRO DODGE</div>
+
+  <p>Official website of Gyro Dodge.</p>
+
+  <div class="footer-links">
+    <a href="https://rajubhai9122042349-commits.github.io/gyro-dodge-privacy/">
+      Privacy Policy
+    </a>
+
+    <a href="/app-ads.txt">
+      app-ads.txt
+    </a>
+
+    <a href="https://play.google.com/store/apps/details?id=com.gyrododge.rajubhai"
+       target="_blank" rel="noopener">
+      Google Play
+    </a>
+  </div>
+
+  <p>© 2026 Gyro Dodge. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
